@@ -246,6 +246,21 @@ define(
             };
 
             /**
+             * 获得图形对象
+             * @param {string} shapeId 形状对象唯一标识
+             */
+            self.getShape = function(shapeId) {
+                var util = require('./tool/util');
+                var attrs = {};
+                util.merge(
+                    attrs,
+                    storage.get(shapeId),
+                    {'overwrite': true, 'recursive': true}
+                );
+                return attrs;
+            }
+
+            /**
              * 删除图形形状
              * @param {string} shapeId 形状对象唯一标识
              */
